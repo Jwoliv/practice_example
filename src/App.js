@@ -1,6 +1,7 @@
 import React from 'react';
 import Counter from './component/Counter';
 import InputField from './component/InputField';
+import './styles/App.css';
 
 function App() {
   return (
