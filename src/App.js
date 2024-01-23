@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Counter from './component/Counter';
 import InputField from './component/InputField';
 import PostsList from './component/PostsList';
+import PostForm from './component/PostForm';
 import './styles/App.css';
 
 function App() {
@@ -12,21 +13,17 @@ function App() {
     {id: 4, title: 'example of the first post 4', likes: 24, dislikes: 112},
     {id: 5, title: 'example of the first post 5', likes: 234, dislikes: 2}
   ]);
-  
-  const [newPost, setNewPost] = useState({ id: posts.length + 1, title: '', likes: 0, dislikes: 0 });
 
-  const addNewPost = (event) => {
+  const createNewPost = (newPost) => {
     setPosts([...posts, newPost]);
-    setNewPost({ ...newPost, id: posts.length + 2, title: ''});
-  };
+  }
 
   return (
     <div>
       <h1>Example of the test</h1>
       <Counter/>
       <InputField/>
-      <input type="text" placeholder="title" value={newPost.title} onChange={event => setNewPost({...newPost, title: event.target.value})}/>
-      <button type="submit" onClick={addNewPost}>add new post</button>
+      <PostForm returnPostToParent={createNewPost} postsLength={posts.length}/>
       <PostsList posts={posts} titleList={"example of the list title"}/>
     </div>
   );
