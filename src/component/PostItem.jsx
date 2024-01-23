@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const PostItem = ({post, ...props}) => {
+const PostItem = ({post, deleteById, ...props}) => {
   return (
     <div>
       <h2>Id: {post.id}</h2>
@@ -9,6 +9,7 @@ const PostItem = ({post, ...props}) => {
         <li>Likes: {post.likes}</li>
         <li>Dislikes: {post.dislikes}</li>
       </ul>
+      <button onClick={() => deleteById(post.id)}>Delete</button>
     </div>
   );
 }

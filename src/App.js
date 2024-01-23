@@ -14,6 +14,11 @@ function App() {
     {id: 5, title: 'example of the first post 5', likes: 234, dislikes: 2}
   ]);
 
+  const removePostFromListById = (id) => {
+    const updatedPosts = posts.filter(post => post.id !== id);
+    setPosts(updatedPosts);
+  }
+
   const createNewPost = (newPost) => {
     setPosts([...posts, newPost]);
   }
@@ -23,8 +28,7 @@ function App() {
       <h1>Example of the test</h1>
       <Counter/>
       <InputField/>
-      <PostForm returnPostToParent={createNewPost} postsLength={posts.length}/>
-      <PostsList posts={posts} titleList={"example of the list title"}/>
+      <PostsList posts={posts} deleteById={removePostFromListById} createNewPost={createNewPost} titleList={"example of the list title"}/>
     </div>
   );
 }
