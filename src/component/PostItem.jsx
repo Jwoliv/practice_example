@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const PostItem = (props) => {
+const PostItem = ({post, ...props}) => {
   return (
     <div>
-      <h2>Title: {props.post.title}</h2>
+      <h2>Id: {post.id}</h2>
+      <h2>Title: {post.title}</h2>
       <ul>
-        <li>Likes: {props.post.likes}</li>
-        <li>Dislikes: {props.post.dislikes}</li>
+        <li>Likes: {post.likes}</li>
+        <li>Dislikes: {post.dislikes}</li>
       </ul>
     </div>
   );
